@@ -1,5 +1,5 @@
 {
-  "name": "my-vue-app",
+  "name": "examples",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,7 @@
     "antd": "^5.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-mount": "workspace:^"
+    "react-dom-mount": "workspace:^"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

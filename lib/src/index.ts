@@ -1,4 +1,6 @@
 import * as React from 'react';
+import * as v17 from './v17'
+import * as v18 from './v18'
 
 const getVersion = (versionStr: string) => {
   const vers = versionStr.split('.') || [];
@@ -6,62 +8,26 @@ const getVersion = (versionStr: string) => {
   return Number(ver);
 };
 
-let reactDom: any;
+let mount
+let unmount
+
 const reactVersion = getVersion(React.version);
 if (reactVersion < 18) {
-  (async () => {
-    reactDom = await import('react-dom');
-  })();
+  mount = v17.mount
+  unmount = v17.unmount
 } else {
-  (async () => {
-    reactDom = await import('react-dom/client');
-  })();
+  mount = v18.mount
+  unmount = v18.unmount
 }
 
-const rootContainer = document.createElement('div');
-document.body.appendChild(rootContainer);
-rootContainer.setAttribute('class', 'react-mount-container');
+export type { Unmount } from './common'
 
-export type Unmount = () => void;
-
-export interface MountReactProps {
-  destroy?: Unmount;
+export {
+  mount,
+  unmount
 }
 
-function unmount(node: HTMLElement) {
-  node.style.display = 'none';
-  reactDom.unmountComponentAtNode(node);
-  if (node && node.parentNode) {
-    node.parentNode.removeChild(node);
-  }
-}
-
-// 挂载节点
-export default function mount(element: JSX.Element, parent?: Element): Unmount {
-  const container = rootContainer || document.body;
-  const el = document.createElement('div');
-  container.appendChild(el);
-
-  const node = React.cloneElement(element, {
-    destroy: () => unmount(el),
-  });
-
-  if (parent) {
-    parent.appendChild(el);
-  } else {
-    rootContainer.appendChild(el);
-  }
-
-  if (reactVersion < 18) {
-    reactDom.render(node, el);
-    return () => {
-      unmount(el);
-    };
-  }
-
-  const root = reactDom.createRoot(el);
-  root.render(node);
-  return () => {
-    unmount(el);
-  };
+export default {
+  mount: mount,
+  unmount: unmount
 }

@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Button } from 'antd'
-import reactMount from 'react-mount'
+import { mount } from 'react-dom-mount'
 import MyModal from './Modal'
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         </p>
       </div>
       <Button onClick={() => {
-        const close = reactMount(<MyModal destroy={() => {
+        const close = mount(<MyModal destroy={() => {
           close()
         }} />)
       }}>
