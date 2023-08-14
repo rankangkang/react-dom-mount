@@ -3,9 +3,13 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*",
-      "sites/*"
+      "lib",
+      "example"
     ]
+  },
+  "scripts": {
+    "build:lib": "pnpm -F react-dom-mount run build",
+    "start:example": "pnpm -F example run dev"
   },
   "devDependencies": {
     "@types/node": "^20.4.9",
