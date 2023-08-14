@@ -1,6 +1,6 @@
 {
   "name": "react-dom-mount",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Mount elements to dom through react-dom",
   "scripts": {
     "dev": "vite",
@@ -40,5 +40,9 @@
       "require": "./dist/cjs/index.js",
       "types": "./dist/index.d.ts"
     }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7"
   }
 }

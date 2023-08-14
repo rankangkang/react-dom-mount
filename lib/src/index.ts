@@ -24,7 +24,4 @@ export type { Unmount } from './common';
 
 export { mount, unmount };
 
-export default {
-  mount: mount,
-  unmount: unmount,
-};
+export default (() => mount)();
