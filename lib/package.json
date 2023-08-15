@@ -1,6 +1,6 @@
 {
   "name": "react-dom-mount",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mount elements to dom through react-dom",
   "scripts": {
     "dev": "vite",
