@@ -8,14 +8,14 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-      // 'outDir': './types'
+      rollupTypes: true
     }),
   ],
   build: {
-    sourcemap: true,
+    sourcemap: false,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'react-mount',
+      name: 'react-dom-mount',
       formats: ['es', 'cjs', 'umd'],
       fileName: (format) => `${format}/index.js`,
     },

@@ -12,11 +12,12 @@
     "publish:lib": "pnpm -F react-dom-mount publish",
     "start:v17": "pnpm -F example-v17 run dev",
     "start:v18": "pnpm -F example-v18 run dev",
-    "publish": "pnpm run build:lib && pnpm run publish:lib"
+    "release": "pnpm run build:lib && pnpm run publish:lib"
   },
   "devDependencies": {
     "@types/node": "^20.4.9",
     "@vitejs/plugin-react": "^4.0.3",
+    "json": "^11.0.0",
     "prettier": "2.5.1",
     "pretty-quick": "3.1.3",
     "typescript": "^5.0.2",
