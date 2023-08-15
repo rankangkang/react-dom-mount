@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { Button } from 'antd';
-import { mount } from 'react-dom-mount';
+import mount from 'react-dom-mount';
 import MyModal from './Modal';
 
 function App() {

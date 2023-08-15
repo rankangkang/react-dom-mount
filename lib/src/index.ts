@@ -1,55 +1,35 @@
-import * as React from 'react';
-import type { Mount } from './common';
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { rootContainer, Unmount } from './types';
 
-const getVersion = (versionStr: string) => {
-  const vers = versionStr.split('.') || [];
-  const [ver] = vers;
-  return Number(ver);
-};
-
-let mount: Mount = () => {
-  console.warn('React-Dom-Mount has not been initialized, please do not call it directly after importing.');
-  console.warn(`
-// ❌ moudle has not been initialized, don not call like this
-import { mount } from 'react-dom-mount'
-mount(el)
-  `);
-  console.warn(`
-import { mount } from 'react-dom-mount'
-function App() {
-  // ...
-  return (
-    // ✅️ moudle initialized, you call it.
-    <button onClick={() => {
-      mount(el)
-    }}>click</button>
-  )
+export function unmount(node: HTMLElement) {
+  node.style.display = 'none';
+  unmountComponentAtNode(node);
+  if (node && node.parentNode) {
+    node.parentNode.removeChild(node);
+  }
 }
 
-// or call it in next eventloop
-setTimeout(() => {
-  // ✅️ moudle initialized, you can call it
-  mount(el)
-}, 3000)
-  `);
+// 挂载节点
+export function mount(element: JSX.Element, parent?: Element): Unmount {
+  const container = rootContainer || document.body;
+  const el = document.createElement('div');
+  container.appendChild(el);
+
+  const node = React.cloneElement(element, {
+    destroy: () => unmount(el),
+  });
+
+  if (parent) {
+    parent.appendChild(el);
+  } else {
+    rootContainer.appendChild(el);
+  }
+
+  render(node, el);
   return () => {
-    console.warn('React-Dom-Mount has not been initialized, please do not call it directly after importing.');
+    unmount(el);
   };
-};
-
-const reactVersion = getVersion(React.version);
-if (reactVersion < 18) {
-  (async () => {
-    ({ mount } = await import('./v17'));
-  })();
-} else {
-  (async () => {
-    ({ mount } = await import('./v18'));
-  })();
 }
 
-export type { Unmount } from './common';
-
-export { mount };
-
-export default { mount };
+export default mount;

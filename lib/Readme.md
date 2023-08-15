@@ -1,11 +1,13 @@
 # react-dom-mount
 
-This package allows you to mount elements (like antd Modal) to dom through react-dom.
+This package allows you to mount elements (like antd Modal) to dom through react-dom v17.
+
+**If you are useing react-dom v18, please install [react-dom-mount v2](https://www.npmjs.com/package/react-dom-mount/v/2.0.0) instead.**
 
 ## installation
 
 ```shell
-npm install react-dom-mount
+npm install react-dom-mount@1
 ```
 
 ## usage
@@ -26,7 +28,7 @@ Here's how to use it.
 
 ```js
 import { Button, Modal } from 'antd';
-import { mount } from 'react-dom-mount';
+import mount from 'react-dom-mount';
 
 function App() {
   return (
@@ -50,4 +52,3 @@ function App() {
 }
 
 ```
-> The APIs exported by react-dom v18 are different from v17 (or earlier), and we have made them compatible.

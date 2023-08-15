@@ -13,7 +13,7 @@
     "antd": "^5.8.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-dom-mount": "workspace:^"
+    "react-dom-mount": "workspace:^1"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
