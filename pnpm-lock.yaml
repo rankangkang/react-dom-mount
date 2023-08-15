@@ -78,10 +78,10 @@ importers:
   lib:
     dependencies:
       react:
-        specifier: '>=16.0.0'
+        specifier: '>=18.0.0'
         version: 18.2.0
       react-dom:
-        specifier: '>=16.0.0'
+        specifier: '>=18.0.0'
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
