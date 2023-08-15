@@ -1,6 +1,6 @@
 {
   "name": "react-dom-mount",
-  "version": "0.1.1",
+  "version": "2.0.0",
   "description": "Mount elements to dom through react-dom",
   "scripts": {
     "dev": "vite",
@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
-    "prepublish": "pnpm run build"
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "react": ">=16.0.0",

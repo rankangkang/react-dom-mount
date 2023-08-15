@@ -8,11 +8,9 @@
     ]
   },
   "scripts": {
-    "build:lib": "pnpm -F react-dom-mount run build",
-    "publish:lib": "pnpm -F react-dom-mount publish",
-    "start:v17": "pnpm -F example-v17 run dev",
-    "start:v18": "pnpm -F example-v18 run dev",
-    "release": "pnpm run build:lib && pnpm run publish:lib"
+    "build": "pnpm -F react-dom-mount run build",
+    "release": "pnpm -F react-dom-mount publish",
+    "start": "pnpm -F example-v18 run dev"
   },
   "devDependencies": {
     "@types/node": "^20.4.9",

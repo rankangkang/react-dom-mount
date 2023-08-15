@@ -26,7 +26,7 @@ Here's how to use it.
 
 ```js
 import { Button, Modal } from 'antd';
-import { mount } from 'react-dom-mount';
+import mount from 'react-dom-mount';
 
 function App() {
   return (
