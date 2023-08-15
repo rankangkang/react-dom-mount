@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "pnpm -F react-dom-mount run build",
-    "publish": "pnpm -F react-dom-mount publish",
+    "release": "pnpm -F react-dom-mount publish",
     "start": "pnpm -F example-v17 run dev"
   },
   "devDependencies": {
